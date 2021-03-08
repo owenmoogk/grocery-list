@@ -1,0 +1,35 @@
+*{
+    color: purple;
+}
+
+body{
+    width: 90%;
+    margin: auto;
+}
+
+#nav{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#nav a{
+    font-size: 20px;
+    color: black;
+    margin: 10px;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+}
+#nav a:hover{
+    border-bottom: 2px solid black;
+}
+
+#products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.object{
+    margin: 10px;
+}
