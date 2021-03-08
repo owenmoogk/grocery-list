@@ -1,22 +1,40 @@
 {%extends "base.html" %}
 
 {%block content%}
-    <div id="items">
+
+    <table id="items">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Notes</th>
+        </tr>        
+        
         {%for item in items %}
-            <div class="item" id='{{item.id}}'>
-                {{item.title}}
-                <br>
-                {{item.description}}
-                <br>
-                {%if item.price != None %}
-                    {{item.price}}
-                {%endif%}
-                <br>
-                <form method="POST"> {% csrf_token %}
-                    <input type="text" value="{{item.id}}" name="id" style="display: none;">
-                    <input type="submit" value="Delete">
-                </form>
-            </div>
+            <tr id="item">
+                <td>
+                    <form method="POST"> {% csrf_token %}
+                        <input type="text" value="{{item.id}}" name="id" style="display: none;">
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+                <td>{{item.title}}</td>
+                <td>
+                    {%if item.price != None %}
+                        {{item.price}}
+                    {%else%}
+                        --
+                    {%endif%}
+                </td>
+                <td>
+                    {%if item.description != "" %}
+                        {{item.description}}
+                    {%else%}
+                        --
+                    {%endif%}
+                </td>
+            </tr>
         {%endfor%}
-    </div>
+
+    </table>
 {%endblock%}

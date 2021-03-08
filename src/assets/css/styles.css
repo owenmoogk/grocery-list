@@ -1,5 +1,5 @@
 *{
-    color: purple;
+    color: black;
 }
 
 body{
@@ -8,7 +8,6 @@ body{
 }
 
 #nav{
-    border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -25,11 +24,12 @@ body{
 }
 
 #items{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    overflow-x: hidden;
+    width: 100%;
 }
-
-.item{
-    margin: 10px;
+th{
+    text-align: left;
+}
+td, th { 
+    overflow-wrap: anywhere;
 }
