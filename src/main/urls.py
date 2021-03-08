@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages import views
-from products.views import productDetailView, productCreateView, productDeleteView
+from products.views import productDetailView, productCreateView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
@@ -26,7 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("items/", productDetailView),
     path("create/", productCreateView),
-    path("delete/<int:id>", productDeleteView, name="product-delete")
 ]
 
 urlpatterns += staticfiles_urlpatterns()

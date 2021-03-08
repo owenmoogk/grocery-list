@@ -1,9 +1,8 @@
 from django import forms
-
 from .models import Product
 
 class ProductForm(forms.ModelForm):
-    # overwriting
+    # overwriting the meta
     title = forms.CharField()
     description = forms.CharField(
         required = False, 
@@ -13,7 +12,10 @@ class ProductForm(forms.ModelForm):
             }
         )
     )
-    
+    price = forms.DecimalField(
+        required = False
+    )
+
     class Meta:
         model = Product
         fields = [
