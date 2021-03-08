@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages import views
-from products.views import productDetailView, productCreateView
+from items.views import itemsDetailView, itemCreateView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
@@ -24,8 +24,8 @@ urlpatterns = [
     path("home/", views.homeView),
     path('about/', views.aboutView),
     path('admin/', admin.site.urls),
-    path("items/", productDetailView),
-    path("create/", productCreateView),
+    path("items/", itemsDetailView),
+    path("create/", itemCreateView),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,22 @@
+{%extends "base.html" %}
+
+{%block content%}
+    <div id="items">
+        {%for item in items %}
+            <div class="item" id='{{item.id}}'>
+                {{item.title}}
+                <br>
+                {{item.description}}
+                <br>
+                {%if item.price != None %}
+                    {{item.price}}
+                {%endif%}
+                <br>
+                <form method="POST"> {% csrf_token %}
+                    <input type="text" value="{{item.id}}" name="id" style="display: none;">
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
+        {%endfor%}
+    </div>
+{%endblock%}

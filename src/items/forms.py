@@ -1,7 +1,7 @@
 from django import forms
-from .models import Product
+from .models import Item
 
-class ProductForm(forms.ModelForm):
+class ItemForm(forms.ModelForm):
     # overwriting the meta
     title = forms.CharField()
     description = forms.CharField(
@@ -17,7 +17,7 @@ class ProductForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Product
+        model = Item
         fields = [
             "title",
             "description",

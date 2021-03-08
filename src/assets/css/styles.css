@@ -24,12 +24,12 @@ body{
     border-bottom: 2px solid black;
 }
 
-#products{
+#items{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.object{
+.item{
     margin: 10px;
 }
