@@ -4,11 +4,3 @@ from django.shortcuts import render
 # Create your views here.
 def homeView(request, *args, **kwargs):
     return render(request, "home.html", {})
-
-def aboutView(request, *args, **kwargs):
-    myContext = {
-        "myText": "this is about us",
-        "myNumber": 123,
-        "myList": [1,2,3,4,5,"GE"],
-    }
-    return render(request, "about.html", myContext)

@@ -24,7 +24,6 @@ from users.views import dashboard
 urlpatterns = [
     path('', views.homeView),
     path("home/", views.homeView),
-    path('about/', views.aboutView),
     path('admin/', admin.site.urls),
     path("items/", itemsDetailView),
     path("create/", itemCreateView),
