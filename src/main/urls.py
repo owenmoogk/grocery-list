@@ -18,6 +18,8 @@ from django.urls import path
 from pages import views
 from items.views import itemsDetailView, itemCreateView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls import include, url
+from users.views import dashboard
 
 urlpatterns = [
     path('', views.homeView),
@@ -26,6 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("items/", itemsDetailView),
     path("create/", itemCreateView),
+    url(r"^", include("users.urls")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
