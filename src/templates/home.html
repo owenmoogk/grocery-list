@@ -2,5 +2,11 @@
 
 {%block content%}
     <h1>Home Page</h1>
-    <h3>Welcome {{request.user}}</h3>
+    {% if request.user.is_authenticated %}
+        <h3>Welcome {{request.user}}</h3>   
+    {% else %}
+        <h3>Welcome Guest</h3>
+    {%endif%}
+    <p>This was made mostly with learning Django in mind. Was nice to learn a bit about user authentication and other backend stuff.</p>
+    <p>You can currently make as many accounts as you would like, and can store different lists in each.</p>
 {% endblock %}
