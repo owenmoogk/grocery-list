@@ -1,0 +1,42 @@
+{%extends "base.html" %}
+
+{%block content%}
+
+    <table id="items">
+        <tr>
+            <th style="width:75px;"></th>
+            <th style="width:175px;">Name</th>
+            <th style="width:75px;">Price</th>
+            <th style="width:75px;">User</th>
+            <th>Notes</th>
+        </tr>        
+        
+        {%for item in items %}
+            <tr id="item">
+                <td>
+                    <form method="POST"> {% csrf_token %}
+                        <input type="text" value="{{item.id}}" name="id" style="display: none;">
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+                <td>{{item.title}}</td>
+                <td>
+                    {%if item.price != None %}
+                        {{item.price}}
+                    {%else%}
+                        --
+                    {%endif%}
+                </td>
+                <td>{{item.owner}}</td>
+                <td>
+                    {%if item.description != "" %}
+                        {{item.description}}
+                    {%else%}
+                        --
+                    {%endif%}
+                </td>
+            </tr>
+        {%endfor%}
+
+    </table>
+{%endblock%}

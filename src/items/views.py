@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Item
 from .forms import ItemForm
 
@@ -31,3 +31,15 @@ def itemCreateView(request):
         "form": form,
     }
     return render(request, "item/item-create.html", context)
+
+@user_passes_test(lambda user: user.is_superuser)
+def itemAllView(request):
+    if request.method == "POST":
+        obj = Item.objects.get(id = request.POST.get("id"))
+        obj.delete()
+    
+    obj = Item.objects.all()
+    context = {
+        "items": obj,
+    }
+    return render(request, "item/all-items.html", context)

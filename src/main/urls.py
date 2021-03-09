@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages import views
-from items.views import itemsDetailView, itemCreateView
+from items.views import itemsDetailView, itemCreateView, itemAllView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import include, url
 from users.views import dashboard
@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("items/", itemsDetailView),
     path("create/", itemCreateView),
+    path("all-items/", itemAllView),
     url(r"^", include("users.urls")),
 ]
 
