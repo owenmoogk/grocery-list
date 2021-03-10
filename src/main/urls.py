@@ -19,7 +19,6 @@ from pages import views
 from items.views import itemsDetailView, itemCreateView, itemAllView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import include, url
-from users.views import dashboard
 
 urlpatterns = [
     path('', views.homeView),
