@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Item
 from .forms import ItemForm
 
-# Create your views here.
+# displaying the items that the user owns, to the user
 @login_required
 def itemsDetailView(request):
     
@@ -18,7 +18,7 @@ def itemsDetailView(request):
     }
     return render(request, "item/item-detail.html", context)
 
-# Create your views here.
+# for the user to create items
 @login_required
 def itemCreateView(request):
     form = ItemForm(request.POST)
@@ -32,6 +32,7 @@ def itemCreateView(request):
     }
     return render(request, "item/item-create.html", context)
 
+# admin, showing all items across all users
 @user_passes_test(lambda user: user.is_superuser)
 def itemAllView(request):
     if request.method == "POST":
