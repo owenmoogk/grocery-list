@@ -1,7 +1,6 @@
 {%extends "base.html" %}
-
+{%load static%}
 {%block content%}
-
     <table id="items">
         <tr>
             <th style="width:75px;"></th>
@@ -15,7 +14,7 @@
                 <td>
                     <form method="POST"> {% csrf_token %}
                         <input type="text" value="{{item.id}}" name="id" style="display: none;">
-                        <input type="submit" value="Delete">
+                        <input type="submit" value="Delete" name="delete">
                     </form>
                 </td>
                 <td>{{item.title}}</td>
@@ -35,6 +34,22 @@
                 </td>
             </tr>
         {%endfor%}
+        <tr height="50px"></tr>
+        <!-- addition form -->
+        <tr>
+            <form method="POST">{% csrf_token %}
+                <td><input type="submit" value="save" name="add" id="name"></td>
+                {% for field in addForm.visible_fields %}
+                    <td>
+                        <!-- {{ field.errors }} -->
+                        {{ field }}
+                        {{ field.help_text }}
+                    </td>
+                {% endfor %}
+            </form>
+        </tr>
 
     </table>
+
+    <script src="{% static '/js/enter-submit.js' %}"></script>
 {%endblock%}
